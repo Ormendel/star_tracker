@@ -27,7 +27,7 @@ if len(good_matches) > 4:
 
     # Save matched keypoints to CSV file
     with open('matched_keypoints.csv', 'w', newline='') as csvfile:
-        fieldnames = ['id', 'x', 'y', 'brightness']
+        fieldnames = ['id', 'x', 'y', 'r', 'b']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
         star_id = 1
@@ -35,6 +35,7 @@ if len(good_matches) > 4:
             if matches_mask[i]:
                 kp = kp1[m.queryIdx]
                 x, y = kp.pt
+                radius = 2.5 * kp.size  # constant factor of 2.5 to convert from scale to radius
                 brightness = kp.size
-                writer.writerow({'id': star_id, 'x': x, 'y': y, 'brightness': brightness})
+                writer.writerow({'id': star_id, 'x': x, 'y': y, 'r':radius, 'b': brightness})
                 star_id +=1
