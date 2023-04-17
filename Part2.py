@@ -3,7 +3,7 @@ import cv2
 import numpy as np
 import random
 import math
-import csv
+import csv 
 
 # Load the image
 img = cv2.imread('src/imageA.png')
