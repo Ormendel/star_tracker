@@ -3,10 +3,10 @@ import cv2
 import numpy as np
 import random
 import math
-import csv 
+import csv
 
 # Load the image
-img = cv2.imread('src/imageA.png')
+img = cv2.imread(r".\src\fr2.jpg")
 
 # Convert the image to grayscale
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
