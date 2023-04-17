@@ -84,6 +84,6 @@ for i in range(num_iterations):
 # Save the coordinates of the stars to a CSV file
 with open('stars_cord.csv', 'w', newline='') as file:
     writer = csv.writer(file)
-    writer.writerow(['id', 'x', 'y', 'r', 'brightness'])
+    writer.writerow(['id', 'x', 'y', 'r', 'b'])
     for i, star in enumerate(stars_cord):
         writer.writerow([i+1, star[0], star[1], star[2], star[3]])
