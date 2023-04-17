@@ -2,8 +2,8 @@ import cv2
 import numpy as np
 import csv
 
-img1 = cv2.imread('src/imageA.png', cv2.IMREAD_GRAYSCALE) # opening first image
-img2 = cv2.imread('src/imageB.png', cv2.IMREAD_GRAYSCALE) # opening second image
+img1 = cv2.imread(r".\src\fr1.jpg", cv2.IMREAD_GRAYSCALE) # opening first image
+img2 = cv2.imread(r".\src\fr2.jpg", cv2.IMREAD_GRAYSCALE) # opening second image
 
 sift = cv2.xfeatures2d.SIFT_create() # using SIFT as our algorithm for matching
 
@@ -30,9 +30,11 @@ if len(good_matches) > 4:
         fieldnames = ['id', 'x', 'y', 'brightness']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
+        star_id = 1
         for i, m in enumerate(good_matches):
             if matches_mask[i]:
                 kp = kp1[m.queryIdx]
                 x, y = kp.pt
                 brightness = kp.size
-                writer.writerow({'id': i, 'x': x, 'y': y, 'brightness': brightness})
+                writer.writerow({'id': star_id, 'x': x, 'y': y, 'brightness': brightness})
+                star_id +=1
