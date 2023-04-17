@@ -86,4 +86,4 @@ with open('stars_cord.csv', 'w', newline='') as file:
     writer = csv.writer(file)
     writer.writerow(['id', 'x', 'y', 'r', 'b'])
     for i, star in enumerate(stars_cord):
-        writer.writerow([i+1, star[0], star[1], star[2], star[3]])
+        writer.writerow([i+1, round(star[0],4), round(star[1],4), round(star[2],4), round(star[3],4)])
