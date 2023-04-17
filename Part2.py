@@ -59,7 +59,7 @@ for cnt in contours:
             b = -1
 
     # Add the coordinates and brightness to the list of stars
-    stars.append((center[0], center[1], b))
+    stars.append((center[0], center[1], r , b))
 
 # Perform RANSAC to find the coordinates of the stars
 stars_cord = []
@@ -84,6 +84,6 @@ for i in range(num_iterations):
 # Save the coordinates of the stars to a CSV file
 with open('stars_cord.csv', 'w', newline='') as file:
     writer = csv.writer(file)
-    writer.writerow(['id', 'x', 'y', 'brightness'])
+    writer.writerow(['id', 'x', 'y', 'r', 'brightness'])
     for i, star in enumerate(stars_cord):
-        writer.writerow([i+1, star[0], star[1], star[2]])
+        writer.writerow([i+1, star[0], star[1], star[2], star[3]])
